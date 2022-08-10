@@ -6,7 +6,6 @@ public class Main {
 		/*Verification v =new Verification();
 		System.out.println(v.checkForUsernameAvaliability("user", "dev1@gmail.com") );
 		*/
-		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Are you Manager or user\n1 - Manager\n2 - User\nEnter 1 or 2: ");
 		int opt =Integer.parseInt(sc.nextLine());
