@@ -17,12 +17,12 @@ public class Verification {
 	
 	}
 	public static boolean validateEmail(String email) {
-		final Pattern emailPattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+		Pattern emailPattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 	    Matcher matcher = emailPattern.matcher(email);
 	    return matcher.find();
 	}
 	public static boolean validatePassword(String password) {
-		final Pattern emailPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$");
+		Pattern emailPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$");
 	    Matcher matcher = emailPattern.matcher(password);
 	    return matcher.find();
 	}

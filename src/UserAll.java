@@ -60,4 +60,28 @@ public class UserAll {
 		return true;
 		
 	}
+	public void changePassword(Scanner sc) throws SQLException {
+		System.out.println("Enter your password :");
+		String pwd=sc.nextLine().strip();
+		boolean verify=Verification.verifyLogin(sc,usertype,username,pwd);
+		while (! verify) {
+			System.out.println("Invalid Password");
+			System.out.println("Enter password :");
+			pwd=sc.nextLine().strip();
+			verify=Verification.verifyLogin(sc,usertype,username,pwd);
+		}
+		System.out.println("Enter your new password :");
+		String newpwd=sc.nextLine().strip();
+		String pwdhex="select MD5('"+newpwd+"');";
+		Statement stmt=DbConnection.getConnection().createStatement();
+		ResultSet rs=stmt.executeQuery(pwdhex);
+		rs.next();
+		String newpwdhex=rs.getString(1);
+		String query=String.format("insert into %s (password) values (?)",usertype);
+		PreparedStatement st=DbConnection.getConnection().prepareStatement(query);
+		st.setString(1,newpwdhex);
+		st.execute();
+		System.out.println("Password reset successfull...");
+		return;
+	}
 }
