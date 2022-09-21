@@ -1,13 +1,22 @@
 import java.sql.SQLException;
 import java.util.Scanner;
-public class Main {
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+
+
+public class Main {
+	private static Logger log=LogManager.getLogger(Main.class.getName());
 	public static void main(String[] args) throws SQLException {
 		/*Verification v =new Verification();
 		System.out.println(v.checkForUsernameAvaliability("user", "dev1@gmail.com") );
 		*/
+		 
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Are you Manager or user\n1 - Manager\n2 - User\nEnter 1 or 2: ");
+		//System.out.println("Are you Manager or user\n1 - Manager\n2 - User\nEnter 1 or 2: ");
+		log.info("Are you Manager or user\n1 - Manager\n2 - User\nEnter 1 or 2: ");
 		int opt =Integer.parseInt(sc.nextLine());
 		if (opt==1) {
 			Manager manager =new Manager();
